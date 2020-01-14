@@ -29,7 +29,7 @@ export default class ListTopBar extends Component<{}> {
                             onHideRequest={()=>{this.setState({displaySortFieldSelect:false});}}
                             visible={this.state.displaySortFieldSelect}/>
                         <Text style={Styles.listTopBarItemText}>مرتب سازی</Text>
-                        <Image source={require('../../images/sort.png')}
+                        <Image source={require('./images/sort.png')}
                                style={Styles.listTopBarItemIcon} resizeMode={'stretch'}/>
                     </View>
                 </TouchableHighlight>
@@ -39,7 +39,7 @@ export default class ListTopBar extends Component<{}> {
                     <View style={Styles.listTopBarItem}>
 
                         <Text style={Styles.listTopBarItemText}>جستجو</Text>
-                        <Image source={require('../../images/filter.png')}
+                        <Image source={require('./images/filter.png')}
                                style={Styles.listTopBarItemIcon} resizeMode={'stretch'}/>
                     </View>
                 </TouchableHighlight>
@@ -51,7 +51,7 @@ export default class ListTopBar extends Component<{}> {
                                         onPress={this.props.onCancelSearch}
                                         activeOpacity={0.3}
                                         underlayColor='#fff'>
-                        <Image source={require('../../images/cancel.png')}
+                        <Image source={require('./images/cancel.png')}
                                style={Styles.searchTitleTopBarCancelIcon} resizeMode={'stretch'}/>
                     </TouchableHighlight>
                 </View>

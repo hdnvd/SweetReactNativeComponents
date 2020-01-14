@@ -23,27 +23,8 @@ import TextRow from "./TextRow";
 import TimeSelector from "./TimeSelector";
 import ViewBox from "./ViewBox";
 
-export default CheckedRow;
-export default FetchLocation;
-export default IconItem;
-export default ImageSelector;
-export default ListTopBar;
-export default LocationSelector;
-export default PageContainer;
-export default PhotoManageBox;
-export default PickerBox;
-export default StarBox;
-export default SweetButton;
-export default SweetCheckBox;
-export default SweetDatePickerModal;
-export default SweetImageSelector;
-export default SweetLocationSelector;
-export default SweetModal;
-export default SweetPickerBox;
-export default SweetSelectorModal;
-export default SweetTopCarousel;
-export default SwitchRow;
-export default TextBox;
-export default TextRow;
-export default TimeSelector;
-export default ViewBox;
+
+export {CheckedRow,FetchLocation,IconItem,ImageSelector,ListTopBar,LocationSelector,PageContainer,
+    PhotoManageBox,PickerBox,StarBox,SweetButton,SweetCheckBox,SweetDatePickerModal,SweetImageSelector
+    ,SweetLocationSelector,SweetModal,SweetPickerBox,SweetSelectorModal,SweetTopCarousel,SwitchRow,
+    TextBox,TextRow,TimeSelector,ViewBox};
