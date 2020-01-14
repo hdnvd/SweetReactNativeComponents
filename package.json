@@ -1,0 +1,52 @@
+{
+  "name": "sweet-react-native-components",
+  "version": "0.0.1",
+  "description": "new beautiful components for react native",
+  "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
+  "keyword": [
+    "react",
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "author": {
+    "name": "Hadi AmirNahavandi",
+    "email": "nahavandi.hadi@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "react": "^16.9.0",
+    "react-native": "^0.61.5",
+    "react-native-elements": "^1.1.0",
+    "react-native-maps": "0.26.1",
+    "react-native-image-picker": "^1.0.1",
+    "sweet-react-native-alert": "https://github.com/hdnvd/sweetReactNativeAlert.git",
+    "react-native-persian-calendar-picker": "https://github.com/hdnvd/react-native-persian-calendar-picker.git",
+    "@react-native-community/geolocation": "^1.4.2",
+    "react-native-snap-carousel": "^3.8.0",
+    "react-native-modal-datetime-picker": "^7.5.0"
+  },
+  "devDependencies": {
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
+  "homepage": "https://github.com/hdnvd/SweetReactNativeComponents",
+  "bugs": {
+    "url": "https://github.com/hdnvd/SweetReactNativeComponents/issues"
+  },
+  "contributors": [
+    {
+      "name": "Hadi AmirNahavandi",
+      "email": "nahavandi.hadi@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hdnvd/sweetReactNativeAlert"
+  }
+}
