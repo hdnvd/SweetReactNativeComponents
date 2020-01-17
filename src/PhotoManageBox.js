@@ -20,8 +20,7 @@ export default class PhotoManageBox extends Component<{}> {
     };
     render() {
         let PhotoList=this.props.photos.map(dt=>{
-            // console.log(Constants.ServerURL+'/'+dt.url);
-            const urlPrefix=this.state.urlPrefix===undefined?'':this.state.urlPrefix;
+            const urlPrefix=this.props.urlPrefix===undefined?'':this.props.urlPrefix;
             return (
                 <View style={Styles.photomanagephotocontainer}>
                     <TouchableHighlight onPress={()=>{SweetAlert.displayDeleteAlert(dt.onDelete)}} style={Styles.photomanagedeleteiconcontainer}>
