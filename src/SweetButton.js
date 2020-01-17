@@ -5,7 +5,8 @@
  */
 
 import React, { Component } from 'react';
-import {Text, View, TouchableOpacity, ActivityIndicator, Dimensions, StyleSheet} from 'react-native';
+import { Dimensions, StyleSheet} from 'react-native';
+import {Button} from 'react-native-paper';
 
 export default class SweetButton extends Component<{}> {
     state={
@@ -13,9 +14,9 @@ export default class SweetButton extends Component<{}> {
     };
     onProcessStarting=()=>
     {
-      this.setState({
-          waiting:true
-      });
+        this.setState({
+            waiting:true
+        });
     };
     onProcessCompleted=(isSuccessful)=>
     {
@@ -25,28 +26,17 @@ export default class SweetButton extends Component<{}> {
     };
     render() {
         return (
-            <View style={this.props.style!=null?this.props.style:Styles.SweetButton}>
-                <TouchableOpacity onPress={()=> {
-                    if (!this.state.waiting)
-                    {
-                        this.onProcessStarting();
-                        this.props.onPress(this.onProcessCompleted);
-                    }
-                }}>
-                    {this.state.waiting &&
-                    <View  style={Styles.SweetButtonWaitDialogContainer}>
-                        <ActivityIndicator style={Styles.SweetButtonWaitDialog} animating={this.state.waiting} size="small"
-                                           color="#ffffff"/>
-                    </View>
-                    }
-                    {!this.state.waiting &&
-                    <Text style={Styles.SweetButtonText}>
-                        {this.props.title}
-                    </Text>
-                    }
-                </TouchableOpacity>
-                {/*<Button iconPlacement='right' underlineColorAndroid={'transparent'} buttonStyle={generalStyles.saveButton}  textStyle={generalStyles.saveButtonText} {...this.props}/>*/}
-            </View>
+            <Button style={this.props.style!=null?this.props.style:Styles.SweetButton} onPress={()=>{
+                if (!this.state.waiting)
+                {
+                    this.onProcessStarting();
+                    this.props.onPress(this.onProcessCompleted);
+                }}
+            } loading={this.state.waiting} contentStyle={Styles.SweetButtonTextContainer} labelStyle={Styles.SweetButtonText} icon={this.props.icon}
+            >
+
+                {this.props.title}
+            </Button>
         );
     }
 }
@@ -74,15 +64,19 @@ const Styles=StyleSheet.create({
             // height:'100%',
             paddingVertical: 10,
         },
+    SweetButtonTextContainer:
+        {
+            paddingVertical: 10,
+            height: '100%',
+            flexDirection:'row-reverse',
+        },
     SweetButtonText:
         {
             fontFamily: 'IRANSansMobile',
             textAlignVertical: 'center',
             textAlign: 'center',
-            paddingVertical: 10,
             fontSize: 13,
             color: '#ffffff',
-            height: '100%'
         },
 });
 
