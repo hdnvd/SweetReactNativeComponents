@@ -47,7 +47,7 @@ const Styles=StyleSheet.create({
     paddingHorizontal: '2%',
   },
   title:{
-    fontFamily:ReactAppConfig.getDefaultFontName(),
+    fontFamily:'IRANSansMobile',
     fontSize: 12,
   }
 
