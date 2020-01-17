@@ -1,7 +1,7 @@
 import React from 'react';
-import {BackHandler, Dimensions, FlatList, StyleSheet} from 'react-native';
+import {Dimensions, FlatList, StyleSheet} from 'react-native';
 import SweetPage from './SweetPage';
-import {ListTopBar} from 'sweet-react-native-components';
+import ListTopBar from '../ListTopBar';
 
 export default class SweetListPage extends SweetPage {
     state =
@@ -12,18 +12,18 @@ export default class SweetListPage extends SweetPage {
             SearchFields: null,
             isLoading: false,
             isRefreshing: false,
-            displaySearchPage: false,
+            // displaySearchPage: false,
             sortField:'id',
         };
     setBackHandler() {
-        this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
-            this.setState({SearchText: '', SearchFields: null}, () => {
-                this._loadData(true, true);
-            });
-            return true;
-        });
+        // this.backHandler = BackHandler.addEventListener('hardwareBackPress', () => {
+        //     this.setState({SearchText: '', SearchFields: null}, () => {
+        //         this._loadData(true);
+        //     });
+        //     return true;
+        // });
     }
-    _loadData = (isRefreshing, forceHideSearchPage) => {
+    _loadData = (isRefreshing) => {
         throw new Error("SweetError: Please Implement LoadData in the ListPage")
     };
     _getFlatList(data,renderItem)
@@ -31,37 +31,33 @@ export default class SweetListPage extends SweetPage {
         return <FlatList
             data={data}
             showsVerticalScrollIndicator={false}
-            onEndReached={() => this._loadData(false, false)}
-            onRefresh={() => this._loadData(true, false)}
+            onEndReached={() => this._loadData(false)}
+            onRefresh={() => this._loadData(true)}
             refreshing={this.state.isRefreshing}
             keyExtractor={item => item.id}
             onEndReachedThreshold={0.3}
             renderItem={renderItem}
-            />
+        />
     }
-    _getTopBar(sortFields)
+    _getTopBar(sortFields,onSearchClick)
     {
         return <ListTopBar sortFields={sortFields}
                            onSortFieldSelect={(optionKey) => {
                                this.setState({sortField: optionKey}, () => {
-                                   this._loadData(true, false);
+                                   this._loadData(true);
                                });
-                           }} onSearchClick={() => {
-            this.setState({displaySearchPage: true});
-            this.setBackHandler();
-        }
-        }
+                           }} onSearchClick={onSearchClick}
+
                            displaySearchTitleBar={this.state.SearchFields != null}
                            onCancelSearch={this._onCancelSearch}
         />
     }
     _onCancelSearch=() => {
         this.setState({
-            displaySearchPage: false,
             SearchText: '',
             SearchFields: null,
         }, () => {
-            this._loadData(true, false);
+            this._loadData(true);
         });
     }
 
