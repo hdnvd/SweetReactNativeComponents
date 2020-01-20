@@ -8,7 +8,7 @@ import React, { Component } from 'react';
 import {
     View,
     Image,
-    TouchableHighlight,
+    TouchableOpacity,
     ActivityIndicator,
     StyleSheet, Dimensions
 } from 'react-native';
@@ -23,9 +23,9 @@ export default class PhotoManageBox extends Component<{}> {
             const urlPrefix=this.props.urlPrefix===undefined?'':this.props.urlPrefix;
             return (
                 <View style={Styles.photomanagephotocontainer}>
-                    <TouchableHighlight onPress={()=>{SweetAlert.displayDeleteAlert(dt.onDelete)}} style={Styles.photomanagedeleteiconcontainer}>
+                    <TouchableOpacity onPress={()=>{SweetAlert.displayDeleteAlert(dt.onDelete)}} style={Styles.photomanagedeleteiconcontainer}>
                         <Image style={Styles.photomanagedeleteicon} source={require('./images/delete.png')}/>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
 
                     <Image style={Styles.photomanagephoto} source={{uri: urlPrefix+dt.url}}
                            onLoadStart={()=>this.setState({loading:true})}
